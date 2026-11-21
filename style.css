@@ -837,3 +837,48 @@ footer span {
     object-position: center top
   }
 }
+
+@media(max-width:700px) {
+  @media(max-width:700px) {
+    .final .btn {
+      flex: 0 1 auto;
+      width: 100%;
+      max-width: 320px
+    }
+  }
+
+  .final .cta .btn {
+    flex: 1 1 0;
+    /* cada botão ocupa metade do espaço */
+    min-width: 0;
+    padding: 10px 14px;
+    font-size: 15px;
+    line-height: 1.2;
+    text-align: center;
+    /* se o texto quebrar em duas linhas, fica centralizado */
+  }
+
+  .final .btn svg {
+    width: 1.15em;
+    height: 1.15em
+  }
+
+  .final .btn {
+    gap: 8px
+  }
+}
+
+.btn {
+  gap: 10px
+}
+
+.btn svg {
+  width: 1.3em;
+  height: 1.3em;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round
+}
