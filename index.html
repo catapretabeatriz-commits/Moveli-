@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Moveli – Móveis sob medida</title>
+  <meta name="theme-color" content="#12305a">
+  <noscript>
+    
+  </noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="intro.css">
+</head>
+
+<body>
+  <div class="stage">
+    <div class="word" id="w" role="img" aria-label="Moveli">
+      <span class="l" style="--i:0" aria-hidden="true">M</span>
+      <span class="l" style="--i:1" aria-hidden="true">O</span>
+      <span class="l" style="--i:2" aria-hidden="true">
+        <svg class="v" viewBox="0 0 100 100">
+          <defs>
+            <mask id="mk" maskUnits="userSpaceOnUse" x="-5" y="-5" width="110" height="110">
+              <rect x="-5" y="-5" width="110" height="110" fill="#fff" />
+              <g id="ticks"></g>
+            </mask>
+          </defs>
+          <polygon fill="currentColor" points="50,72 74,0 100,0 63,100 37,100" />
+          <g class="leg">
+            <polygon fill="currentColor" mask="url(#mk)" points="0,0 26,0 50,72 37,100" />
+          </g>
+        </svg>
+      </span>
+      <span class="l" style="--i:3" aria-hidden="true">E</span>
+      <span class="l" style="--i:4" aria-hidden="true">L</span>
+      <span class="l" style="--i:5" aria-hidden="true">I</span>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var ns = 'http://www.w3.org/2000/svg', g = document.getElementById('ticks'), w = document.getElementById('w');
+      for (var k = 0; k < 9; k++) {
+        var y = 8 + k * 10.5, x = 0.37 * y, len = k % 2 ? 8 : 13, p = document.createElementNS(ns, 'path');
+        p.setAttribute('d', 'M' + (x - 1) + ' ' + y + ' L' + (x + len) + ' ' + y);
+        p.setAttribute('pathLength', '1');
+        p.setAttribute('class', 'tick');
+        p.style.setProperty('--t', k);
+        g.appendChild(p);
+      }
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches, gone = false;
+      function leave() {
+        if (gone) return; gone = true;
+        document.body.classList.add('saindo');
+        setTimeout(function () { location.replace('home.html'); }, reduce ? 50 : 700);
+      }
+      w.classList.add('go');
+      setTimeout(leave, reduce ? 1200 : 4800);
+    })();
+  </script>
+</body>
+
+</html>
